@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<meta charset="UTF-8">
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Segoe UI', system-ui, sans-serif; font-size: 14px; color: #1e293b; line-height: 1.6; padding: 48px; max-width: 900px; margin: 0 auto; }
+  h1 { font-size: 26px; font-weight: 800; color: #1e293b; margin-bottom: 6px; }
+  .meta { color: #64748b; font-size: 13px; margin-bottom: 36px; }
+  h2 { font-size: 18px; font-weight: 700; color: #2563eb; margin: 32px 0 10px; border-bottom: 2px solid #e2e8f0; padding-bottom: 6px; }
+  h3 { font-size: 15px; font-weight: 700; color: #1e293b; margin: 20px 0 8px; }
+  p { margin-bottom: 10px; }
+  ul, ol { padding-left: 22px; margin-bottom: 12px; }
+  li { margin-bottom: 4px; }
+  .badge { display: inline-block; background: #dcfce7; color: #166534; font-weight: 700; font-size: 12px; padding: 3px 10px; border-radius: 99px; margin-bottom: 10px; }
+  .badge-red { background: #fee2e2; color: #991b1b; }
+  .badge-yellow { background: #fef3c7; color: #92400e; }
+  table { width: 100%; border-collapse: collapse; margin: 14px 0 20px; font-size: 13px; }
+  th { background: #f1f5f9; text-align: left; padding: 8px 12px; font-weight: 700; border: 1px solid #e2e8f0; }
+  td { padding: 8px 12px; border: 1px solid #e2e8f0; vertical-align: top; }
+  tr:nth-child(even) td { background: #f8fafc; }
+  .callout { background: #eff6ff; border-left: 4px solid #2563eb; padding: 14px 18px; border-radius: 4px; margin: 16px 0; }
+  .callout-red { background: #fff1f2; border-left-color: #e11d48; }
+  .callout-green { background: #f0fdf4; border-left-color: #16a34a; }
+  code { background: #f1f5f9; padding: 2px 6px; border-radius: 4px; font-size: 12px; font-family: monospace; }
+  pre { background: #0f172a; color: #e2e8f0; padding: 16px; border-radius: 8px; font-size: 12px; font-family: monospace; margin: 14px 0; line-height: 1.8; overflow-x: auto; }
+  .phase { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 8px; padding: 16px; margin: 12px 0; }
+  .phase-num { display: inline-block; width: 26px; height: 26px; background: #2563eb; color: white; border-radius: 50%; text-align: center; line-height: 26px; font-weight: 700; font-size: 13px; margin-right: 8px; }
+  .footer { margin-top: 48px; padding-top: 16px; border-top: 1px solid #e2e8f0; color: #94a3b8; font-size: 12px; text-align: center; }
+  @media print { body { padding: 24px; } }
+</style>
+</head>
+<body>
+
+<h1>System Landing Page'y — Analiza i Decyzja</h1>
+<p class="meta">Data: Kwiecień 2026</p>
+
+<h2>Cel projektu</h2>
+<p>Stworzyć system, który pozwoli budować profesjonalne landing page'e dla klientów (sprzedaż, webinary, kursy), gdzie <strong>klient sam może edytować treści</strong> — bez znajomości kodu, bez programisty, bez czekania.</p>
+<div class="callout">
+  <strong>Skala:</strong> Celujemy w dziesiątki, docelowo setki klientów. System musi na to pozwalać od początku.
+</div>
+
+<h2>Przeanalizowane opcje</h2>
+
+<h3><span class="badge badge-red">Odrzucona</span> Opcja A — Gotowe narzędzie SaaS (Framer / Webflow)</h3>
+<table>
+  <tr><th>✅ Plusy</th><th>❌ Minusy</th></tr>
+  <tr><td>Gotowe w 1 dzień</td><td>15–50 USD/mies. <strong>per klient</strong></td></tr>
+  <tr><td>Profesjonalny wygląd od razu</td><td>Brak kontroli nad kodem i hostingiem</td></tr>
+  <tr><td>Klient sam edytuje (drag &amp; drop)</td><td>Zależność od zewnętrznej firmy</td></tr>
+  <tr><td></td><td>Klient widzi cudzy produkt, nie nasz</td></tr>
+</table>
+<p><strong>Odrzucona.</strong> Oddajemy marżę i kontrolę zewnętrznej firmie.</p>
+
+<h3><span class="badge badge-yellow">Prototyp demonstracyjny</span> Opcja B — Własne szablony + prosty panel (config.json)</h3>
+<p>Lekki system oparty o pliki konfiguracyjne JSON. Zbudowaliśmy prototyp tej opcji do demonstracji:</p>
+<ul>
+  <li>Demo: <code>panmaciuss.github.io/marvis-lp/</code></li>
+  <li>Panel edycji: <code>panmaciuss.github.io/marvis-lp/#/panel</code></li>
+</ul>
+
+<div class="callout callout-red">
+  <strong>Dlaczego odrzuciliśmy B jako docelowy system:</strong>
+  <ol style="margin-top:8px">
+    <li><strong>Brak prawdziwego panelu CMS</strong> — edycja pliku JSON to nie jest UX dla klienta. Klient musi rozumieć strukturę danych, a nie skupiać się na treści.</li>
+    <li><strong>Skalowanie = koszmar</strong> — każdy klient to osobne repozytorium i osobny deployment. Przy 20+ klientach zarządzanie tym to pełnoetatowa praca administracyjna.</li>
+    <li><strong>Migracja B→C jest bardzo kosztowna</strong> — gdy każdy klient ma nieco inny design, przeniesienie 20 klientów do profesjonalnego systemu to rebuild każdego projektu od zera. Oceniamy to na tygodnie pracy.</li>
+    <li><strong>Różne designy per klient</strong> — B wymaga osobnego kodu dla każdego klienta z innym layoutem. To nie jest produkt, to agencja bez systemu.</li>
+  </ol>
+</div>
+<p><strong>Wniosek:</strong> Opcja B była użyteczna do szybkiego zbudowania prototypu i weryfikacji konceptu. Jako docelowy system dla 50+ klientów — wykluczona.</p>
+
+<h2>✅ Opcja C — Headless CMS + Framework (WYBRANA)</h2>
+<p><strong>Stack:</strong> Sanity CMS + Next.js / Astro + Vercel/Netlify</p>
+
+<h2>Co to da klientom?</h2>
+
+<h3>Panel edycji jak profesjonalny CMS</h3>
+<p>Klient dostaje dostęp do <strong>Sanity Studio</strong> — intuicyjnego panelu w przeglądarce. Bez wiedzy technicznej może:</p>
+<ul>
+  <li>✍️ Zmieniać wszystkie teksty (nagłówki, opisy, CTA, FAQ)</li>
+  <li>🎨 Ustawiać kolory, czcionki, styl wizualny</li>
+  <li>📷 Wgrywać i zarządzać zdjęciami (automatyczna optymalizacja, CDN)</li>
+  <li>🔒 Ustawiać hasło do zamkniętego webinaru</li>
+  <li>📅 Zmieniać datę, opis i link do webinaru na żywo</li>
+  <li>👥 Dodawać członków zespołu z rolami (admin / edytor)</li>
+  <li>📝 Tworzyć wiele stron (landing, regulamin, polityka prywatności)</li>
+  <li>🔄 Historia zmian — cofnięcie edycji do dowolnego punktu w czasie</li>
+</ul>
+<p>Klient widzi zmiany <strong>natychmiast</strong> (live preview), a strona aktualizuje się automatycznie po zapisie (~30 sekund).</p>
+
+<h3>Wydajność i SEO</h3>
+<p>Next.js / Astro generuje statyczne pliki HTML — strona ładuje się w <strong>poniżej 1 sekundy</strong>. Google premiuje szybkość. To ma realny wpływ na konwersję i pozycjonowanie klienta — i staje się częścią naszej wartości jako dostawcy.</p>
+
+<h3>Własna domena i marka</h3>
+<p>Każdy klient dostaje własną domenę lub subdomenę. Dla odwiedzającego to strona firmy klienta — żadne zewnętrzne narzędzie nie jest widoczne.</p>
+
+<h2>Co to da nam jako biznes?</h2>
+
+<table>
+  <tr><th></th><th>Opcja B (odrzucona)</th><th>Opcja C (wybrana)</th></tr>
+  <tr><td><strong>Klientów w systemie</strong></td><td>Max ~10 zanim bałagan</td><td>Setki bez problemu</td></tr>
+  <tr><td><strong>Onboarding nowego klienta</strong></td><td>2–3h (setup repo, config)</td><td>&lt; 30 min (duplikacja projektu)</td></tr>
+  <tr><td><strong>Edycja przez klienta</strong></td><td>Formularz JSON (nieczytelny)</td><td>Profesjonalny CMS panel</td></tr>
+  <tr><td><strong>Różne designy</strong></td><td>Osobny kod per klient</td><td>Jeden kod, różne konfiguracje</td></tr>
+  <tr><td><strong>Dodanie nowego klienta</strong></td><td>Nowe repo + deployment</td><td>1 kliknięcie w systemie</td></tr>
+  <tr><td><strong>Koszt per klient</strong></td><td>$0</td><td>~$0 (Sanity free do 3 proj.)</td></tr>
+  <tr><td><strong>Własna marka</strong></td><td>✅</td><td>✅</td></tr>
+</table>
+
+<h2>Architektura techniczna</h2>
+<pre>
+KLIENT (przez przeglądarkę)
+  ↓
+Sanity Studio — panel CMS
+  ↓  (webhook przy każdej zmianie)
+Vercel / Netlify — automatyczny rebuild
+  ↓
+Statyczna strona HTML (szybka, SEO-ready)
+  ↓
+ODWIEDZAJĄCY — własna domena klienta
+</pre>
+<p>Jeden centralny system. Nowe szablony dodajemy raz — dostępne dla wszystkich klientów.</p>
+
+<h2>Plan działania</h2>
+
+<div class="phase">
+  <span class="phase-num">1</span> <strong>Faza 1 — Prototyp (gotowe)</strong>
+  <ul style="margin-top:8px">
+    <li>✅ Zbudowany działający prototyp (Opcja B) do demonstracji i walidacji konceptu</li>
+    <li>✅ Pokazuje flow: landing + bramka webinaru + panel edycji treści</li>
+  </ul>
+</div>
+
+<div class="phase">
+  <span class="phase-num">2</span> <strong>Faza 2 — Fundament systemu C (2–4 tygodnie)</strong>
+  <ul style="margin-top:8px">
+    <li>Konfiguracja Sanity CMS + schemat danych (sekcje landing page)</li>
+    <li>Zbudowanie szablonu Next.js/Astro podłączonego do Sanity</li>
+    <li>Automatyczny deployment na Vercel</li>
+    <li>Pierwszy klient testowy — weryfikacja w praktyce</li>
+  </ul>
+</div>
+
+<div class="phase">
+  <span class="phase-num">3</span> <strong>Faza 3 — Skalowanie</strong>
+  <ul style="margin-top:8px">
+    <li>Kolejne szablony (różne branże: coaching, e-commerce, kursy)</li>
+    <li>System onboardingu nowych klientów</li>
+    <li>Panel zarządzania wszystkimi klientami (jeden widok)</li>
+    <li>Opcjonalnie: własny white-label CMS zamiast Sanity Studio</li>
+  </ul>
+</div>
+
+<h2>Pytania do ustalenia</h2>
+<ol>
+  <li>Czy każdy klient dostaje swoją osobną domenę/subdomenę?</li>
+  <li>Czy klienci będą potrzebować tylko jedną stronę (landing) czy też podstrony — blog, cennik, regulamin?</li>
+</ol>
+
+<div class="footer">Dokument zaktualizowany po analizie opcji i decyzji o przejściu na architekturę Headless CMS. | Kwiecień 2026</div>
+
+</body>
+</html>
