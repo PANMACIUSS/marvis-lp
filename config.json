@@ -1,0 +1,58 @@
+{
+  "company": {
+    "name": "Marvis",
+    "logo": "https://placehold.co/180x50/1e293b/ffffff?text=MARVIS"
+  },
+  "hero": {
+    "headline": "Zwiększ sprzedaż dzięki AI w Twojej firmie",
+    "subheadline": "Praktyczny webinar, który pokaże Ci jak wdrożyć sztuczną inteligencję w codziennej pracy i zaoszczędzić 10+ godzin tygodniowo.",
+    "cta_text": "Zapisz się za darmo",
+    "cta_link": "#zapis",
+    "image": "https://images.unsplash.com/photo-1551434678-e076c223a692?w=800&q=80"
+  },
+  "benefits": [
+    {
+      "emoji": "🚀",
+      "title": "Szybsze wyniki",
+      "description": "Automatyzuj powtarzalne zadania i skup się na tym, co naprawdę ważne."
+    },
+    {
+      "emoji": "💡",
+      "title": "Praktyczna wiedza",
+      "description": "Konkretne narzędzia i techniki, które zastosujesz od razu po webinarze."
+    },
+    {
+      "emoji": "📈",
+      "title": "Wzrost przychodów",
+      "description": "Sprawdzone strategie, które już działają w polskich firmach."
+    },
+    {
+      "emoji": "🎯",
+      "title": "Bez technicznej wiedzy",
+      "description": "Nie musisz być programistą — wszystko wyjaśnimy krok po kroku."
+    }
+  ],
+  "webinar": {
+    "title": "Webinar: AI w praktyce biznesowej",
+    "date": "2026-04-15T18:00:00",
+    "description": "90-minutowe szkolenie na żywo z sesjami Q&A. Dowiesz się jak ChatGPT, Claude i inne narzędzia AI mogą zrewolucjonizować Twój biznes.",
+    "password": "marvis2026",
+    "video_url": "https://example.com/webinar-link"
+  },
+  "signup": {
+    "title": "Zarezerwuj swoje miejsce",
+    "subtitle": "Liczba miejsc ograniczona. Zapisz się już teraz!",
+    "button_text": "Zapisuję się!"
+  },
+  "style": {
+    "primary": "#2563eb",
+    "secondary": "#1e40af",
+    "background": "#ffffff",
+    "text": "#1e293b",
+    "accent": "#3b82f6",
+    "font": "Inter"
+  },
+  "footer": {
+    "text": "© 2026 Marvis. Wszelkie prawa zastrzeżone."
+  }
+}
