@@ -1,10 +1,10 @@
 {
   "company": {
-    "name": "Marvis",
-    "logo": "https://placehold.co/180x50/1e293b/ffffff?text=MARVIS"
+    "name": "WebinarPro",
+    "logo": "https://placehold.co/180x50/2563eb/ffffff?text=WebinarPro"
   },
   "hero": {
-    "headline": "Zwiększ sprzedaż dzięki AI w Twojej firmie",
+    "headline": "Naucz się AI i wyprzedź konkurencję",
     "subheadline": "Praktyczny webinar, który pokaże Ci jak wdrożyć sztuczną inteligencję w codziennej pracy i zaoszczędzić 10+ godzin tygodniowo.",
     "cta_text": "Zapisz się za darmo",
     "cta_link": "#zapis",
@@ -53,6 +53,6 @@
     "font": "Inter"
   },
   "footer": {
-    "text": "© 2026 Marvis. Wszelkie prawa zastrzeżone."
+    "text": "© 2026 WebinarPro. Wszelkie prawa zastrzeżone."
   }
 }
