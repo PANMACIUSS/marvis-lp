@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Marvis - Landing Page</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    [x-cloak] { display: none !important; }
+    html { scroll-behavior: smooth; }
+    .fade-in { animation: fadeIn 0.6s ease-out forwards; opacity: 0; }
+    @keyframes fadeIn { to { opacity: 1; } }
+    .fade-in-delay-1 { animation-delay: 0.15s; }
+    .fade-in-delay-2 { animation-delay: 0.3s; }
+    .fade-in-delay-3 { animation-delay: 0.45s; }
+    .hero-gradient { position: relative; overflow: hidden; }
+    .hero-gradient::before {
+      content: '';
+      position: absolute; inset: 0;
+      background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+      opacity: 0.95;
+      z-index: 1;
+    }
+    .hero-gradient > * { position: relative; z-index: 2; }
+    .benefit-card { transition: transform 0.2s, box-shadow 0.2s; }
+    .benefit-card:hover { transform: translateY(-4px); box-shadow: 0 12px 32px rgba(0,0,0,0.1); }
+    .password-shake { animation: shake 0.4s ease-in-out; }
+    @keyframes shake {
+      0%, 100% { transform: translateX(0); }
+      25% { transform: translateX(-8px); }
+      75% { transform: translateX(8px); }
+    }
+  </style>
+</head>
+<body class="min-h-screen" style="background: var(--color-bg); color: var(--color-text);">
+
+  <!-- Loading state -->
+  <div id="loader" class="fixed inset-0 flex items-center justify-center bg-white z-50">
+    <div class="w-10 h-10 border-4 border-gray-200 border-t-blue-600 rounded-full animate-spin"></div>
+  </div>
+
+  <!-- NAV -->
+  <nav id="nav" class="sticky top-0 z-40 backdrop-blur-md bg-white/80 border-b border-gray-100 shadow-sm">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-3 flex items-center justify-between">
+      <div class="flex items-center gap-3">
+        <img id="nav-logo" src="" alt="Logo" class="h-8 object-contain">
+        <span id="nav-name" class="font-bold text-lg"></span>
+      </div>
+      <a id="nav-cta" href="#zapis" class="hidden sm:inline-block px-5 py-2 rounded-full text-white text-sm font-semibold transition hover:opacity-90" style="background: var(--color-primary);">
+        Zapisz się
+      </a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-gradient text-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-16 sm:py-24 lg:py-32">
+      <div class="grid lg:grid-cols-2 gap-12 items-center">
+        <div class="fade-in">
+          <h1 id="hero-headline" class="text-3xl sm:text-4xl lg:text-5xl font-extrabold leading-tight mb-6"></h1>
+          <p id="hero-subheadline" class="text-lg sm:text-xl opacity-90 mb-8 leading-relaxed"></p>
+          <a id="hero-cta" href="#zapis" class="inline-block px-8 py-4 bg-white rounded-full font-bold text-lg transition hover:shadow-lg hover:scale-105" style="color: var(--color-primary);">
+          </a>
+        </div>
+        <div class="fade-in fade-in-delay-1 hidden lg:block">
+          <img id="hero-image" src="" alt="Hero" class="rounded-2xl shadow-2xl w-full object-cover max-h-[420px]">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BPxS CLUB SECTION -->
+  <section id="bpxs-club" class="py-16 sm:py-24 bg-gray-50 overflow-hidden">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="flex flex-col lg:flex-row items-center gap-12">
+        <div class="lg:w-1/2 fade-in">
+          <h2 class="text-3xl sm:text-4xl font-extrabold leading-tight mb-6" style="color: var(--color-primary);">Klub Biznesu BPxS</h2>
+          <p class="text-lg text-gray-700 mb-6 leading-relaxed">
+            Klub BPxS to elitarne środowisko dla osób, które chcą rozwijać się wielowymiarowo — biznesowo, kompetencyjnie i mentalnie. Niezależnie od etapu, na którym jesteś, dostajesz gotowe ścieżki i wsparcie praktyków.
+          </p>
+          <div class="space-y-4 mb-8">
+            <div class="flex items-start gap-3">
+              <div class="mt-1 p-1 bg-brand/10 rounded-full text-brand">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <p class="text-gray-600"><strong>Mentoring Praktyków:</strong> Warsztaty i mastermindy z właścicielami dużych firm.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="mt-1 p-1 bg-brand/10 rounded-full text-brand">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <p class="text-gray-600"><strong>Zamknięta Społeczność:</strong> Otoczenie ludzi nastawionych na konkretne rezultaty.</p>
+            </div>
+            <div class="flex items-start gap-3">
+              <div class="mt-1 p-1 bg-brand/10 rounded-full text-brand">
+                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/></svg>
+              </div>
+              <p class="text-gray-600"><strong>Prowadzenie Dawida Piątkowskiego:</strong> Bezpośrednie wsparcie w egzekucji celów.</p>
+            </div>
+          </div>
+          <p class="text-sm font-semibold uppercase tracking-wider text-gray-400 mb-2">Pakiet ELITE</p>
+          <p class="text-gray-600 italic mb-8">Prywatna, strategiczna współpraca 1:1 dla przedsiębiorców operujących na poziomie skalowania i wpływu.</p>
+          <a href="https://bpxs.org" target="_blank" class="inline-block px-8 py-4 rounded-xl text-white font-bold transition hover:opacity-90 hover:shadow-lg" style="background: var(--color-primary);">
+            Dołącz do Klubu BPxS
+          </a>
+        </div>
+        <div class="lg:w-1/2 grid grid-cols-2 gap-4 fade-in fade-in-delay-1">
+          <img src="https://bpxs.org/wp-content/uploads/2026/01/IMG_1020-scaled.jpeg" class="w-full h-64 object-cover rounded-2xl shadow-lg transform translate-y-8" alt="BPxS Event">
+          <img src="https://bpxs.org/wp-content/uploads/2026/01/3ea2375baa005ba891cdaa8666c50ec0-scaled.jpg" class="w-full h-64 object-cover rounded-2xl shadow-lg" alt="BPxS Mentoring">
+          <img src="https://bpxs.org/wp-content/uploads/2026/03/liftapp-10-scaled-e1773917392925.jpg" class="w-full h-64 object-cover rounded-2xl shadow-lg transform translate-y-8" alt="BPxS Community">
+          <img src="https://bpxs.org/wp-content/uploads/2026/03/Epic-LBC.png" class="w-full h-64 object-cover rounded-2xl shadow-lg" alt="BPxS Success">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- BENEFITS -->
+  <section class="py-16 sm:py-24" style="background: var(--color-bg);">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+      <div class="text-center mb-12 fade-in">
+        <h2 class="text-2xl sm:text-3xl font-bold mb-3">Co zyskasz?</h2>
+        <p class="text-gray-500 text-lg">Strategie sprzedaży z AI, marketing przyszłości, rozwój osobisty i biznesowy.</p>
+      </div>
+      <div id="benefits-grid" class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <!-- filled by JS -->
+      </div>
+    </div>
+  </section>
+
+  <!-- WEBINAR -->
+  <section id="webinar" class="py-16 sm:py-24 bg-gray-50">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+      <div class="bg-white rounded-2xl shadow-lg p-8 sm:p-12 fade-in">
+        <div class="text-center mb-8">
+          <span class="inline-block px-4 py-1 rounded-full text-sm font-semibold mb-4" style="background: color-mix(in srgb, var(--color-primary) 10%, white); color: var(--color-primary);">Webinar</span>
+          <h2 id="webinar-title" class="text-2xl sm:text-3xl font-bold mb-3"></h2>
+          <p id="webinar-date" class="text-gray-500 text-lg mb-4"></p>
+          <p id="webinar-desc" class="text-gray-600 leading-relaxed"></p>
+        </div>
+
+        <!-- Password gating -->
+        <div id="webinar-gate" class="mt-8 border-t pt-8">
+          <p class="text-center text-gray-600 mb-4 font-medium">Wpisz hasło, aby uzyskać dostęp do webinaru:</p>
+          <div class="flex flex-col sm:flex-row gap-3 max-w-md mx-auto">
+            <input id="webinar-password-input" type="password" placeholder="Hasło dostępu..."
+              class="flex-1 px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 transition text-center text-lg">
+            <button id="webinar-password-btn" class="px-6 py-3 rounded-xl text-white font-semibold transition hover:opacity-90"
+              style="background: var(--color-primary);">
+              Odblokuj
+            </button>
+          </div>
+          <p id="webinar-password-error" class="text-red-500 text-center mt-3 text-sm hidden">Nieprawidłowe hasło. Spróbuj ponownie.</p>
+        </div>
+
+        <!-- Unlocked content -->
+        <div id="webinar-unlocked" class="mt-8 border-t pt-8 text-center hidden">
+          <div class="inline-flex items-center gap-2 text-green-600 font-semibold mb-4">
+            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/></svg>
+            Dostęp odblokowany!
+          </div>
+          <a id="webinar-link" href="#" target="_blank"
+            class="inline-block px-8 py-4 rounded-xl text-white font-bold text-lg transition hover:opacity-90 hover:shadow-lg"
+            style="background: var(--color-primary);">
+            Przejdź do webinaru &rarr;
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- SIGNUP -->
+  <section id="zapis" class="py-16 sm:py-24" style="background: var(--color-bg);">
+    <div class="max-w-xl mx-auto px-4 sm:px-6">
+      <div class="bg-white rounded-2xl shadow-lg p-8 sm:p-12 fade-in">
+        <div class="text-center mb-8">
+          <h2 id="signup-title" class="text-2xl sm:text-3xl font-bold mb-2"></h2>
+          <p id="signup-subtitle" class="text-gray-500"></p>
+        </div>
+        <form id="signup-form" class="space-y-4" onsubmit="return false;">
+          <input type="text" placeholder="Imię i nazwisko" required
+            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 transition">
+          <input type="email" placeholder="Adres e-mail" required
+            class="w-full px-4 py-3 border-2 border-gray-200 rounded-xl focus:outline-none focus:border-blue-500 transition">
+          <button id="signup-btn" type="submit"
+            class="w-full px-6 py-4 rounded-xl text-white font-bold text-lg transition hover:opacity-90 hover:shadow-lg"
+            style="background: var(--color-primary);">
+          </button>
+        </form>
+        <p class="text-xs text-gray-400 text-center mt-4">Twoje dane są bezpieczne. Nie wysyłamy spamu.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="py-8 border-t border-gray-100">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 text-center">
+      <p id="footer-text" class="text-gray-400 text-sm"></p>
+    </div>
+  </footer>
+
+  <script>
+    (async () => {
+      try {
+        const res = await fetch('config.json');
+        const cfg = await res.json();
+
+        // CSS custom properties
+        const root = document.documentElement.style;
+        root.setProperty('--color-primary', cfg.style.primary);
+        root.setProperty('--color-secondary', cfg.style.secondary);
+        root.setProperty('--color-bg', cfg.style.background);
+        root.setProperty('--color-text', cfg.style.text);
+        root.setProperty('--color-accent', cfg.style.accent);
+
+        // Google Font
+        const fontLink = document.createElement('link');
+        fontLink.rel = 'stylesheet';
+        fontLink.href = `https://fonts.googleapis.com/css2?family=${encodeURIComponent(cfg.style.font)}:wght@400;500;600;700;800;900&display=swap`;
+        document.head.appendChild(fontLink);
+        document.body.style.fontFamily = `'${cfg.style.font}', system-ui, sans-serif`;
+
+        // Title
+        document.title = `${cfg.company.name} — ${cfg.hero.headline}`;
+
+        // Tailwind config
+        tailwind.config = {
+          theme: {
+            extend: {
+              colors: {
+                brand: cfg.style.primary,
+              }
+            }
+          }
+        };
+
+        // Nav
+        document.getElementById('nav-logo').src = cfg.company.logo;
+        document.getElementById('nav-name').textContent = cfg.company.name;
+
+        // Hero
+        document.getElementById('hero-headline').textContent = cfg.hero.headline;
+        document.getElementById('hero-subheadline').textContent = cfg.hero.subheadline;
+        const heroCta = document.getElementById('hero-cta');
+        heroCta.textContent = cfg.hero.cta_text;
+        heroCta.href = cfg.hero.cta_link;
+        document.getElementById('hero-image').src = cfg.hero.image;
+        document.getElementById('nav-cta').href = cfg.hero.cta_link;
+        document.getElementById('nav-cta').textContent = cfg.hero.cta_text;
+
+        // Benefits
+        const grid = document.getElementById('benefits-grid');
+        cfg.benefits.forEach((b, i) => {
+          const card = document.createElement('div');
+          card.className = `benefit-card bg-white rounded-2xl p-6 shadow-sm border border-gray-100 fade-in fade-in-delay-${Math.min(i, 3)}`;
+          card.innerHTML = `
+            <div class="text-4xl mb-4">${b.emoji}</div>
+            <h3 class="font-bold text-lg mb-2">${b.title}</h3>
+            <p class="text-gray-500 text-sm leading-relaxed">${b.description}</p>
+          `;
+          grid.appendChild(card);
+        });
+
+        // Webinar
+        document.getElementById('webinar-title').textContent = cfg.webinar.title;
+        const wDate = new Date(cfg.webinar.date);
+        document.getElementById('webinar-date').textContent = wDate.toLocaleDateString('pl-PL', {
+          weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit'
+        });
+        document.getElementById('webinar-desc').textContent = cfg.webinar.description;
+
+        // Password gating
+        if (!cfg.webinar.password) {
+          document.getElementById('webinar-gate').classList.add('hidden');
+          document.getElementById('webinar-unlocked').classList.remove('hidden');
+          document.getElementById('webinar-link').href = cfg.webinar.video_url;
+        } else {
+          document.getElementById('webinar-link').href = cfg.webinar.video_url;
+
+          const pwdInput = document.getElementById('webinar-password-input');
+          const pwdBtn = document.getElementById('webinar-password-btn');
+          const pwdError = document.getElementById('webinar-password-error');
+
+          const checkPassword = () => {
+            if (pwdInput.value.trim() === cfg.webinar.password) {
+              document.getElementById('webinar-gate').classList.add('hidden');
+              document.getElementById('webinar-unlocked').classList.remove('hidden');
+            } else {
+              pwdError.classList.remove('hidden');
+              pwdInput.classList.add('password-shake');
+              setTimeout(() => pwdInput.classList.remove('password-shake'), 400);
+            }
+          };
+
+          pwdBtn.addEventListener('click', checkPassword);
+          pwdInput.addEventListener('keydown', (e) => {
+            if (e.key === 'Enter') checkPassword();
+            pwdError.classList.add('hidden');
+          });
+        }
+
+        // Signup
+        document.getElementById('signup-title').textContent = cfg.signup.title;
+        document.getElementById('signup-subtitle').textContent = cfg.signup.subtitle;
+        document.getElementById('signup-btn').textContent = cfg.signup.button_text;
+
+        document.getElementById('signup-form').addEventListener('submit', () => {
+          alert('Dziękujemy za zapis! (Demo — formularz placeholder)');
+        });
+
+        // Footer
+        document.getElementById('footer-text').textContent = cfg.footer.text;
+
+        // Remove loader
+        document.getElementById('loader').style.opacity = '0';
+        document.getElementById('loader').style.transition = 'opacity 0.3s';
+        setTimeout(() => document.getElementById('loader').remove(), 300);
+
+      } catch (err) {
+        console.error('Błąd ładowania config.json:', err);
+        document.getElementById('loader').innerHTML = '<p class="text-red-500 text-lg">Błąd ładowania konfiguracji. Sprawdź config.json.</p>';
+      }
+    })();
+  </script>
+</body>
+</html>
